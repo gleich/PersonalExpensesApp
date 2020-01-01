@@ -1,3 +1,3 @@
 # Personal Expenses App
 
-📱 Personal Expenses app built with Flutter. My first real Flutter app.
+📱 Keep track of your expenses and progress to save money with the modern UI and UX driven Flutter App!
