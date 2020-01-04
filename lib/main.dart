@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './transaction.dart';
 import './coreWidgets/transactionCard.dart';
+import './coreWidgets/input.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,8 +20,8 @@ class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(
       id: 't1',
-      title: "New Shoes",
-      amount: 79.99,
+      title: "New Video Game",
+      amount: 59.99,
       date: DateTime.now(),
     ),
     Transaction(
@@ -49,6 +50,7 @@ class MyHomePage extends StatelessWidget {
               ),
               elevation: 5,
             ),
+            TransactionInput(),
             Column(
               children: <Widget>[
                 ...transactions.map(
