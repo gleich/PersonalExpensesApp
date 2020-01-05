@@ -16,7 +16,7 @@ class TransactionInput extends StatelessWidget {
               onChanged: (String val) => titleInput = val,
               decoration: InputDecoration(
                   fillColor: Colors.green,
-                  labelText: "Transaction Amount",
+                  labelText: "Transaction Title",
                   labelStyle: TextStyle(color: Colors.black)),
             ),
             TextField(
