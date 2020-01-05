@@ -3,11 +3,16 @@ import 'package:intl/intl.dart';
 
 import './../models/transaction.dart';
 
-class TranactionCard extends StatelessWidget {
+class TranactionCard extends StatefulWidget {
   final Transaction tx;
 
   TranactionCard({@required this.tx});
 
+  @override
+  _TranactionCardState createState() => _TranactionCardState();
+}
+
+class _TranactionCardState extends State<TranactionCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -21,7 +26,7 @@ class TranactionCard extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10),
             child: Text(
-              "\$${tx.amount}",
+              "\$${widget.tx.amount}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
@@ -32,11 +37,11 @@ class TranactionCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                tx.title,
+                widget.tx.title,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Text(
-                DateFormat.yMMMd().format(tx.date),
+                DateFormat.yMMMd().format(widget.tx.date),
               )
             ],
           )
