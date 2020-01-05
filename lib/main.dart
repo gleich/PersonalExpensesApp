@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './transaction.dart';
-import './coreWidgets/transactionCard.dart';
+import './models/transaction.dart';
+import './coreWidgets/transactionCards.dart';
 import './coreWidgets/input.dart';
 
 void main() => runApp(MyApp());
@@ -53,11 +53,11 @@ class MyHomePage extends StatelessWidget {
             TransactionInput(),
             Column(
               children: <Widget>[
-                ...transactions.map(
-                  (tx) {
-                    return TranactionCard(tx: tx,);
-                  }
-                ).toList()
+                ...transactions.map((tx) {
+                  return TranactionCard(
+                    tx: tx,
+                  );
+                }).toList()
               ],
             )
           ],
