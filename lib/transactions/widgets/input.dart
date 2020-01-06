@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TransactionInput extends StatelessWidget {
+  final Function addTx;
+  TransactionInput(this.addTx);
+
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
@@ -30,8 +33,8 @@ class TransactionInput extends StatelessWidget {
             FlatButton(
               child: Text("Add Transaction"),
               textColor: Colors.green,
-              onPressed: () =>
-                  print(titleController.text + " " + amountController.text),
+              onPressed: () => addTx(
+                  titleController.text, double.parse(amountController.text)),
             )
           ],
         ),
