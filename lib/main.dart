@@ -22,19 +22,21 @@ class MyHomePage extends StatelessWidget {
         title: Text('Personal Expenses'),
         backgroundColor: Colors.black,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Card(
-            color: Colors.black,
-            child: Text(
-              "CHART!",
-              style: TextStyle(color: Colors.white),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Card(
+              color: Colors.black,
+              child: Text(
+                "CHART!",
+                style: TextStyle(color: Colors.white),
+              ),
+              elevation: 5,
             ),
-            elevation: 5,
-          ),
-          UserTransactions()
-        ],
+            UserTransactions()
+          ],
+        ),
       ),
     );
   }
