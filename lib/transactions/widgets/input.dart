@@ -25,6 +25,7 @@ class TransactionInput extends StatelessWidget {
             ),
             TextField(
               controller: amountController,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   fillColor: Colors.green,
                   labelText: "Amount",
