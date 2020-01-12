@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses/transactions/widgets/transactionCards.dart';
 
-import './transactions/userTransactions.dart';
-import './transactions/widgets/transactionCards.dart';
+import './transactions/widgets/input.dart';
+import './transactions/models/transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,12 +16,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  void starAddNewTransaction(BuildContext ctx) {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> _userTransactions = [];
+
+  void _addNewTransaction(String txTitle, double txAmount) {
+    final newTx = Transaction(
+      title: txTitle,
+      amount: txAmount,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
+    );
+    setState(() {
+      _userTransactions.add(newTx);
+    });
+  }
+
+  void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
-        return;
+        return GestureDetector(
+          onTap: () {},
+          child: TransactionInput(_addNewTransaction),
+          behavior: HitTestBehavior.opaque,
+        );
       },
     );
   }
@@ -33,7 +57,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.black,
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () => _startAddNewTransaction(context),
             icon: Icon(
               Icons.add,
               color: Colors.white,
@@ -53,13 +77,13 @@ class MyHomePage extends StatelessWidget {
               ),
               elevation: 5,
             ),
-            UserTransactions()
+            TranactionCards(_userTransactions)
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () => _startAddNewTransaction(context),
         backgroundColor: Colors.black,
       ),
     );
