@@ -20,6 +20,7 @@ class _TransactionInputState extends State<TransactionInput> {
       return;
     }
     widget.addTx(enteredTitle, enteredAmount);
+    Navigator.of(context).pop();
   }
 
   @override
