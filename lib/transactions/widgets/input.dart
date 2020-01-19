@@ -10,7 +10,6 @@ class TransactionInput extends StatefulWidget {
 
 class _TransactionInputState extends State<TransactionInput> {
   final titleController = TextEditingController();
-
   final amountController = TextEditingController();
 
   void submitData() {
@@ -36,18 +35,24 @@ class _TransactionInputState extends State<TransactionInput> {
               controller: titleController,
               onSubmitted: (_) => submitData(),
               decoration: InputDecoration(
-                  fillColor: Colors.green,
-                  labelText: "Transaction Title",
-                  labelStyle: TextStyle(color: Colors.black)),
+                fillColor: Colors.green,
+                labelText: "Transaction Title",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
             TextField(
               controller: amountController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
               decoration: InputDecoration(
-                  fillColor: Colors.green,
-                  labelText: "Amount",
-                  labelStyle: TextStyle(color: Colors.black)),
+                fillColor: Colors.green,
+                labelText: "Amount",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
             FlatButton(
               child: Text("Add Transaction"),
