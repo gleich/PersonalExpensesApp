@@ -39,6 +39,7 @@ class _TransactionInputState extends State<TransactionInput> {
                 labelText: "Transaction Title",
                 labelStyle: TextStyle(
                   color: Colors.white,
+                  fontSize: 18,
                 ),
               ),
             ),
@@ -51,11 +52,17 @@ class _TransactionInputState extends State<TransactionInput> {
                 labelText: "Amount",
                 labelStyle: TextStyle(
                   color: Colors.white,
+                  fontSize: 18,
                 ),
               ),
             ),
             FlatButton(
-              child: Text("Add Transaction"),
+              child: Text(
+                "Add Transaction",
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
               textColor: Colors.green,
               onPressed: submitData,
             )
