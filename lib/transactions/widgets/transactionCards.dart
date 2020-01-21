@@ -27,6 +27,7 @@ class TranactionCards extends StatelessWidget {
                     "\$${transactions[index].amount.toStringAsFixed(2)}",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      fontFamily: "OpenSans",
                       fontSize: 20,
                     ),
                   ),
