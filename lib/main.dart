@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         );
       },
-    );
+    ).toList();
   }
 
   @override
