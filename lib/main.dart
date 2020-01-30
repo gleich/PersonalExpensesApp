@@ -3,6 +3,7 @@ import 'package:personal_expenses/transactions/widgets/transactionCards.dart';
 
 import './transactions/widgets/input.dart';
 import './transactions/models/transaction.dart';
+import './transactions/widgets/chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -60,6 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where(
+      (tx) {
+        return tx.date.isAfter(
+          DateTime.now().subtract(
+            Duration(days: 7),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,14 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Card(
-              color: Colors.black,
-              child: Text(
-                "CHART!",
-                style: TextStyle(color: Colors.white),
-              ),
-              elevation: 5,
-            ),
+            Chart(_recentTransactions),
             TranactionCards(_userTransactions)
           ],
         ),
