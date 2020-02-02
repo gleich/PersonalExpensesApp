@@ -43,9 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now(),
       id: DateTime.now().toString(),
     );
-    setState(() {
-      _userTransactions.add(newTx);
-    });
+    setState(
+      () {
+        _userTransactions.add(newTx);
+      },
+    );
   }
 
   void _startAddNewTransaction(BuildContext ctx) {
