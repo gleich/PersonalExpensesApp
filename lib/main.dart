@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
         fontFamily: "Quicksand",
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
-                  title: TextStyle(
-                fontFamily: "OpenSans",
-                fontSize: 21.5,
-              )),
+                headline6: TextStyle(
+                  fontFamily: "OpenSans",
+                  fontSize: 21.5,
+                ),
+              ),
         ),
       ),
       home: MyHomePage(),
