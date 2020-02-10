@@ -33,39 +33,31 @@ class TranactionCards extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
-                  elevation: 3,
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2),
-                        ),
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "\$${transactions[index].amount.toStringAsFixed(2)}",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "OpenSans",
-                            fontSize: 20,
-                          ),
+                  elevation: 5,
+                  margin: EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 5,
+                  ),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                        padding: const EdgeInsets.all(6),
+                        child: FittedBox(
+                          child: Text(
+                              "\$${transactions[index].amount.toStringAsFixed(2)}"),
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            transactions[index].title,
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            DateFormat.yMMMd().format(transactions[index].date),
-                          )
-                        ],
-                      )
-                    ],
+                    ),
+                    title: Text(
+                      transactions[index].title,
+                      style: TextStyle(
+                        fontSize: 19,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text(
+                        DateFormat.yMMMd().format(transactions[index].date)),
                   ),
                 );
               },
