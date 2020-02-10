@@ -82,10 +82,12 @@ class _TransactionInputState extends State<TransactionInput> {
               height: 60,
               child: Row(
                 children: <Widget>[
-                  Text(
-                    _selectedDate == null
-                        ? "No Date Chosen!"
-                        : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
+                  Expanded(
+                    child: Text(
+                      _selectedDate == null
+                          ? "No Date Chosen!"
+                          : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
+                    ),
                   ),
                   SizedBox(width: 10),
                   FlatButton(
