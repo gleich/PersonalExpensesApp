@@ -56,14 +56,32 @@ class _TransactionInputState extends State<TransactionInput> {
                 ),
               ),
             ),
-            FlatButton(
+            Container(
+              height: 60,
+              child: Row(
+                children: <Widget>[
+                  Text("No Date Chosen!"),
+                  SizedBox(width: 10),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Choose Date",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            RaisedButton(
               child: Text(
                 "Add Transaction",
                 style: TextStyle(
                   fontSize: 15,
                 ),
               ),
-              textColor: Colors.green,
               onPressed: submitData,
             )
           ],
