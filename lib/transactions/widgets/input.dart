@@ -15,9 +15,12 @@ class _TransactionInputState extends State<TransactionInput> {
   DateTime _selectedDate;
 
   void _submitData() {
+    if (amountController.text.isEmpty) {
+      return;
+    }
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
-    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+    if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
       return;
     }
     widget.addTx(enteredTitle, enteredAmount);
