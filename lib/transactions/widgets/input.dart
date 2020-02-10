@@ -22,6 +22,15 @@ class _TransactionInputState extends State<TransactionInput> {
     Navigator.of(context).pop();
   }
 
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(DateTime.now().year),
+      lastDate: DateTime.now(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -63,7 +72,7 @@ class _TransactionInputState extends State<TransactionInput> {
                   Text("No Date Chosen!"),
                   SizedBox(width: 10),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: _presentDatePicker,
                     child: Text(
                       "Choose Date",
                       style: TextStyle(
