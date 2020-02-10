@@ -12,7 +12,7 @@ class _TransactionInputState extends State<TransactionInput> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
@@ -33,7 +33,7 @@ class _TransactionInputState extends State<TransactionInput> {
           children: <Widget>[
             TextField(
               controller: titleController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
               decoration: InputDecoration(
                 fillColor: Colors.green,
                 labelText: "Transaction Title",
@@ -46,7 +46,7 @@ class _TransactionInputState extends State<TransactionInput> {
             TextField(
               controller: amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
               decoration: InputDecoration(
                 fillColor: Colors.green,
                 labelText: "Amount",
@@ -82,7 +82,7 @@ class _TransactionInputState extends State<TransactionInput> {
                   fontSize: 15,
                 ),
               ),
-              onPressed: submitData,
+              onPressed: _submitData,
             )
           ],
         ),
