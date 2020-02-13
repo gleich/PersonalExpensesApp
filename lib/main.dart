@@ -35,7 +35,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [];
+  final List<Transaction> _userTransactions = [
+    // Transaction(
+    //     id: "N/A", title: "something", amount: 10, date: DateTime.now()),
+    // Transaction(
+    //     id: "N/A", title: "something", amount: 10, date: DateTime.now()),
+    // Transaction(
+    //     id: "N/A", title: "something", amount: 10, date: DateTime.now()),
+    // Transaction(
+    //     id: "N/A", title: "something", amount: 10, date: DateTime.now()),
+    // Transaction(
+    //     id: "N/A", title: "something", amount: 10, date: DateTime.now()),
+    // Transaction(
+    //     id: "N/A", title: "something", amount: 10, date: DateTime.now()),
+    // Transaction(id: "N/A", title: "something", amount: 10, date: DateTime.now())
+  ];
 
   void _addNewTransaction(
       String txTitle, double txAmount, DateTime chosenDate) {
@@ -87,26 +101,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appBar = AppBar(
+      title: Text('Personal Expenses'),
+      backgroundColor: Colors.black,
+      actions: <Widget>[
+        IconButton(
+          onPressed: () => _startAddNewTransaction(context),
+          icon: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+        )
+      ],
+    );
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Personal Expenses'),
-        backgroundColor: Colors.black,
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => _startAddNewTransaction(context),
-            icon: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Chart(_recentTransactions),
-            TranactionCards(_userTransactions, _deleteTransaction)
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                      appBar.preferredSize.height) *
+                  0.26,
+              child: Chart(_recentTransactions),
+            ),
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                      appBar.preferredSize.height) *
+                  0.70,
+              child: TranactionCards(
+                _userTransactions,
+                _deleteTransaction,
+              ),
+            )
           ],
         ),
       ),
