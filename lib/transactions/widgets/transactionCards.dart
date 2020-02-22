@@ -25,7 +25,7 @@ class TranactionCards extends StatelessWidget {
                       height: 80,
                     ),
                     Container(
-                      height: 200,
+                      height: constraints.maxHeight * 0.6,
                       child: Image.asset(
                         "assets/images/waiting.png",
                         fit: BoxFit.cover,
