@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:personal_expenses/transactions/widgets/transactionCards.dart';
@@ -160,14 +162,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        onPressed: () => _startAddNewTransaction(context),
-        backgroundColor: Colors.black,
-      ),
+      floatingActionButton: Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              onPressed: () => _startAddNewTransaction(context),
+              backgroundColor: Colors.black,
+            ),
     );
   }
 }
